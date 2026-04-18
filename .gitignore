@@ -1,0 +1,36 @@
+# Entorno virtual
+.venv/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+
+# uv
+.uv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Variables de entorno
+.env
+.env.*
+
+# VS Code
+.vscode/
+
+# Datos crudos (van en DVC, no en Git)
+data/raw/
+data/processed/
+*.csv
+*.parquet
+
+# Modelos ML (van en DVC, no en Git)
+models/
+
+# OS
+.DS_Store
+Thumbs.db
