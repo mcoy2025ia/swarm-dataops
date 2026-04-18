@@ -34,3 +34,27 @@ models/
 # OS
 .DS_Store
 Thumbs.db
+
+# MLflow & DVC
+mlruns/
+mlflow.db
+.dvc/tmp/
+.dvc/cache/
+
+# Data (local only)
+data/raw/
+data/processed/
+*.csv
+*.parquet
+
+# Models
+models/
+*.pkl
+*.joblib
+*.h5
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
