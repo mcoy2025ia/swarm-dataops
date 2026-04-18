@@ -19,8 +19,8 @@ build/
 .env
 .env.*
 
-# VS Code
-.vscode/
+
+
 
 # Datos crudos (van en DVC, no en Git)
 data/raw/
