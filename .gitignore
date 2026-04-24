@@ -1,60 +1,45 @@
-# Entorno virtual
-.venv/
+# ── Secretos ─────────────────────────────────────────────────
+.env
+.env.*
 
-# Python
+# ── Entorno virtual ──────────────────────────────────────────
+.venv/
+.uv/
+
+# ── Python ───────────────────────────────────────────────────
 __pycache__/
 *.pyc
 *.pyo
 *.egg-info/
 dist/
 build/
+.pytest_cache/
 
-# uv
-.uv/
-
-# Jupyter
+# ── Jupyter ──────────────────────────────────────────────────
 .ipynb_checkpoints/
 
-# Variables de entorno
-.env
-.env.*
-
-
-
-
-# Datos crudos (van en DVC, no en Git)
-data/raw/
-data/processed/
+# ── Datos — van en DVC, no en Git ────────────────────────────
+data/
 *.csv
 *.parquet
 
-# Modelos ML (van en DVC, no en Git)
-models/
-
-# OS
-.DS_Store
-Thumbs.db
-
-# MLflow & DVC
-mlruns/
-mlflow.db
-.dvc/tmp/
-.dvc/cache/
-
-# Data (local only)
-data/raw/
-data/processed/
-*.csv
-*.parquet
-
-# Models
+# ── Modelos — van en DVC, no en Git ──────────────────────────
 models/
 *.pkl
 *.joblib
 *.h5
 
-# Python
-__pycache__/
-*.pyc
-.pytest_cache/
-.venv/
+# ── MLflow y DVC ─────────────────────────────────────────────
+mlruns/
+mlflow.db
+.dvc/tmp/
+.dvc/cache/
+
+# ── SWARM — memoria local, no subir ──────────────────────────
+.lancedb/
+obsidian-vault/.obsidian/
+*.db
+
+# ── OS ───────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db

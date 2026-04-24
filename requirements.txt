@@ -1,0 +1,85 @@
+# ============================================================
+# requirements.txt · SWARM v2.1
+# IEEE-CIS Fraud Detection Pilot
+# ============================================================
+# Instalar: pip install -r requirements.txt
+# Con venv: .venv\Scripts\activate && pip install -r requirements.txt
+# ============================================================
+
+
+# ── FRAMEWORK SWARM ─────────────────────────────────────────
+# Orquestación y memoria del enjambre
+anthropic>=0.49.0           # Claude Code · Sonnet · Haiku
+langgraph>=0.2.0            # máquina de estados del enjambre
+lancedb>=0.6.0              # memoria vectorial local-first
+sentence-transformers>=3.0  # embeddings para LanceDB
+
+
+# ── OBSERVABILIDAD ───────────────────────────────────────────
+logfire>=2.0.0              # telemetría nativa · budget watchdog
+python-dotenv>=1.0.0        # carga de variables de entorno
+
+
+# ── PIPELINE DE DATOS ────────────────────────────────────────
+# Orquestación
+apache-airflow>=2.9.0       # DAGs de ingesta · idempotente
+
+# Transformación
+dbt-core>=1.8.0             # medallion Bronze → Silver → Gold
+dbt-bigquery>=1.8.0         # adapter BigQuery para dbt
+
+# Procesamiento local
+duckdb>=1.0.0               # validación local-first antes de BigQuery
+pandas>=2.2.0               # manipulación de datos
+numpy>=1.26.0               # operaciones numéricas
+pyarrow>=16.0.0             # formato columnar · compatibilidad BigQuery
+
+
+# ── GOOGLE CLOUD PLATFORM ────────────────────────────────────
+google-cloud-bigquery>=3.20.0       # warehouse analítico
+google-cloud-bigquery-storage>=2.25 # lectura rápida desde BigQuery
+google-cloud-storage>=2.16.0        # Cloud Storage · datos crudos
+google-auth>=2.29.0                 # autenticación GCP
+
+
+# ── ML Y MODELADO ────────────────────────────────────────────
+scikit-learn>=1.5.0         # Logistic Regression baseline · métricas
+xgboost>=2.0.0              # modelo principal de fraude
+lightgbm>=4.3.0             # modelo alternativo · más rápido que XGBoost
+shap>=0.45.0                # explicabilidad · TreeExplainer
+optuna>=3.6.0               # optimización de hiperparámetros · threshold tuning
+imbalanced-learn>=0.12.0    # class_weight utilities · manejo de desbalance
+
+
+# ── EXPERIMENT TRACKING ──────────────────────────────────────
+mlflow>=2.13.0              # tracking de experimentos · Model Registry
+dvc>=3.50.0                 # versionamiento de datos y modelos
+
+
+# ── CAPA SEMÁNTICA ───────────────────────────────────────────
+llama-index>=0.10.0         # NL to SQL sobre Gold Marts
+llama-index-llms-anthropic>=0.3.0   # LLM backend para LlamaIndex
+
+
+# ── API Y DEPLOYMENT ─────────────────────────────────────────
+fastapi>=0.111.0            # endpoint de scoring · /predict
+uvicorn>=0.29.0             # servidor ASGI para FastAPI
+pydantic>=2.7.0             # validación de schema · contratos de datos
+
+
+# ── DASHBOARD ────────────────────────────────────────────────
+streamlit>=1.35.0           # dashboard ejecutivo · demo ML
+
+
+# ── KAGGLE (descarga del dataset) ────────────────────────────
+kaggle>=1.6.0               # Kaggle API · descarga IEEE-CIS
+
+
+# ── UTILIDADES ───────────────────────────────────────────────
+requests>=2.32.0            # HTTP client
+tqdm>=4.66.0                # barras de progreso
+python-json-logger>=2.0.0   # logging estructurado
+pytest>=8.2.0               # testing
+ruff>=0.4.0                 # linter · pre-commit hook
+groq>=0.9.0                 # Groq LPU client · validaciones LangGraph
+openai>=1.30.0              # cliente DeepSeek (usa API compatible con OpenAI)
